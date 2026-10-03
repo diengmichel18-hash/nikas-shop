@@ -1700,3 +1700,129 @@ footer {
 .miniature-produit.active {
     border-color: #d63384;
 }
+
+/* ========================================
+   ADAPTATION POUR TELEPHONE
+======================================== */
+
+@media (max-width: 768px) {
+
+    /* Corps de la page */
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+        padding: 10px;
+    }
+
+    /* Logo */
+    header img {
+        height: 55px !important;
+    }
+
+    /* Navigation */
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* CONTENU PRINCIPAL */
+    main {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* PRODUITS */
+    .produits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .produit {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .produit img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* BOUTONS */
+    button {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* PANIER */
+    .panier-box {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* MODALE PRODUIT */
+    .detail-contenu {
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 20px 10px;
+        text-align: center;
+    }
+}
+
+
+/* ========================================
+   PETITS TELEPHONES
+======================================== */
+
+@media (max-width: 480px) {
+
+    /* Navigation */
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    /* Produits : 2 colonnes */
+    .produits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .produit h3 {
+        font-size: 14px;
+    }
+
+    .produit p {
+        font-size: 13px;
+    }
+
+    .produit button {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+    /* Titre */
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
