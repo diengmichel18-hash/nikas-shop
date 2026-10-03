@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nika's Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- BARRE DE NAVIGATION -->
+    <!-- ========================= -->
+
+    <header>
+
+        <nav>
+
+            <!-- LOGO -->
+
+            <div class="logo">
+    <img style="border-radius: 50px; height: 75px; border: 2px solid #212124;" src="logo.png" alt="Logo">
+    <h1>Nika's Shop</h1>
+</div>
+
+
+            <!-- MENU -->
+
+            <ul>
+
+                <li>
+                    <a href="#accueil">Accueil</a>
+                </li>
+
+                <li>
+                    <a href="#produits">Produits</a>
+                </li>
+
+                <li>
+                    <a href="#categories">Catégories</a>
+                </li>
+
+                <li>
+                    <a href="#apropos">À propos</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <!-- PANIER -->
+
+            <div
+                class="panier"
+                onclick="ouvrirPanier()">
+
+                🛒
+
+                <span id="nombrePanier">
+                    0
+                </span>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main>
+
+
+        <!-- ========================= -->
+        <!-- SECTION ACCUEIL -->
+        <!-- ========================= -->
+
+        <section id="accueil">
+
+            <div class="accueil-contenu">
+
+                <p class="petit-titre">
+                    ✨ BIENVENUE CHEZ
+                </p>
+
+                <h2>
+                    Nika's Shop
+                </h2>
+
+                <h3>
+                    L'élégance au féminin
+                </h3>
+
+                <p>
+                    Découvrez notre sélection de textiles,
+                    sacs, chaussures, bijoux et produits
+                    de soins pour femmes.
+                </p>
+
+                <a
+                    href="#produits"
+                    class="bouton-accueil">
+
+                    Découvrir nos produits
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- CATEGORIES -->
+        <!-- ========================= -->
+
+        <section id="categories">
+
+            <div class="titre-section">
+
+                <h1>
+                    NOS CATEGORIES
+                </h1>
+
+                <p>
+                    Découvrez nos collections
+                </p>
+
+                <span>
+                    Trouvez facilement ce qui vous correspond
+                </span>
+
+            </div>
+
+
+            <!-- BOUTONS CATEGORIES -->
+
+            <div class="boutons-categories">
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Tous')">
+
+                    🛍️ Tous
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Textiles')">
+
+                    👗 Textiles
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Sacs')">
+
+                    👜 Sacs
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Chaussures')">
+
+                    👠 Chaussures
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Bijoux')">
+
+                    💎 Bijoux
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="filtrerProduits('Skin care')">
+
+                    ✨ Skin Care
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- PRODUITS -->
+        <!-- ========================= -->
+
+        <section id="produits">
+
+            <div class="titre-section">
+
+                <center>
+                    <h2>
+                        NOS PRODUITS
+                    </h2>
+                <p>
+                    Découvrez nos articles
+                </p> </center>
+
+            </div>
+
+
+            <div
+                id="productGrid"
+                class="produits-container">
+
+                <!-- Les produits seront ajoutés automatiquement -->
+
+            </div>
+
+        </section>
+
+ </section>
+ 
+
+</main>
+
+
+
+    <!-- ========================= -->
+    <!-- DÉTAIL PRODUIT -->
+    <!-- ========================= -->
+
+    <div
+        id="detailProduit"
+        class="detail-produit">
+
+        <div class="detail-contenu">
+
+
+            <!-- BOUTON FERMER -->
+
+            <button
+                class="fermer-detail"
+                onclick="fermerDetail()">
+
+                ✕
+
+            </button>
+
+
+            <!-- GALERIE -->
+
+            <div class="galerie-produit">
+
+                <button
+                    class="fleche gauche"
+                    onclick="imagePrecedente()">
+
+                    ❮
+
+                </button>
+
+
+                <img
+                    id="imageDetail"
+                    src=""
+                    alt="Produit"
+                >
+
+
+                <button
+                    class="fleche droite"
+                    onclick="imageSuivante()">
+
+                    ❯
+
+                </button>
+
+            </div>
+
+
+
+            <!-- INFORMATIONS PRODUIT -->
+
+            <div class="informations-detail">
+
+                <p
+                    id="categorieDetail"
+                    class="categorie-detail">
+                </p>
+
+
+                <h2 id="nomDetail"></h2>
+
+
+                <p
+                    id="prixDetail"
+                    class="prix-detail">
+                </p>
+
+
+                <p
+                    id="descriptionDetail"
+                    class="description-detail">
+                </p>
+
+
+
+                <!-- COULEURS -->
+
+                <div id="blocCouleurs">
+
+                    <h3>
+                        Couleur :
+                    </h3>
+
+                    <div id="couleursDetail"></div>
+
+                    <p id="couleurChoisie"></p>
+
+                </div>
+
+
+
+                <!-- TAILLES -->
+
+                <div id="blocTailles">
+
+                    <h3>
+                        Taille :
+                    </h3>
+
+                    <div id="taillesDetail"></div>
+
+                    <p id="tailleChoisie"></p>
+
+                </div>
+
+                <div id="blocGenres">
+
+              <h4>Genre :</h4>
+
+             <div id="genresDetail"></div>
+
+          <p id="genreChoisi"></p>
+
+        </div>
+
+                <!-- AJOUTER AU PANIER -->
+
+                <button
+                    class="bouton-ajouter"
+                    onclick="ajouterProduitDepuisDetail()">
+
+                    🛒 Ajouter au panier
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- FENÊTRE PANIER -->
+    <!-- ========================= -->
+
+    <div
+        id="fenetrePanier"
+        class="fenetre-panier">
+
+        <div class="contenu-panier">
+
+
+            <!-- BOUTON FERMER -->
+
+            <button
+                class="fermer-panier"
+                onclick="fermerPanier()">
+
+                ✕
+
+            </button>
+
+
+            <h2>
+                🛒 Mon panier
+            </h2>
+
+
+            <!-- LISTE DES PRODUITS -->
+
+            <div id="listePanier">
+
+                <!-- Les produits seront ajoutés ici -->
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="total-panier">
+
+                <span>
+                    Total :
+                </span>
+
+                <strong id="totalPanier">
+                    0 FCFA
+                </strong>
+
+            </div>
+
+
+            <!-- BOUTON COMMANDER -->
+
+            <button
+                class="bouton-commander"
+                onclick="commander()">
+
+                📱 Commander
+
+            </button>
+
+        </div>
+
+    </div> 
+
+    <!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+    <div class="footer-contenu">
+
+
+        <!-- BOUTIQUE -->
+
+        <div class="footer-colonne">
+
+            <h2>
+                Nika's Shop
+            </h2>
+
+            <p>
+                L'élégance au féminin ✨
+            </p>
+
+            <p>
+                Textiles, sacs, chaussures,
+                bijoux et produits de soins.
+            </p>
+
+        </div>
+
+
+
+        <!-- LIENS RAPIDES -->
+
+        <div class="footer-colonne">
+
+            <h3>
+                Liens rapides
+            </h3>
+
+            <a href="#accueil">
+                Accueil
+            </a>
+
+            <a href="#produits">
+                Produits
+            </a>
+
+            <a href="#categories">
+                Catégories
+            </a>
+
+            <a href="#apropos">
+                À propos
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-colonne">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📱 78 128 18 26
+            </p>
+
+            <a
+                href="https://wa.me/221781281826"
+                target="_blank">
+
+                💬 WhatsApp
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bas">
+
+        <p>
+            © 2026 Nika's Shop —
+            Tous droits réservés.
+        </p>
+
+        <p>
+            Fait avec ❤️ pour Nika's Shop
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
